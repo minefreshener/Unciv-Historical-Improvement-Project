@@ -1,18 +1,276 @@
 [
-    {
+{
         "name": "Settler",
         "unitType": "Civilian",
         "movement": 2,
+	"requiredTech": "Labor Organization",
         "uniques": ["Founds a new city <by consuming this unit>","Requires at least [2] population"]
-    },
-    {
-		"name": "Rifleman",
-		"unitType": "Infantry",
+},
+{
+		"name": "Worker",
+		"unitType": "Civilian",
+		"movement": 2,
+		"requiredTech": "Labor Organization",
+		"uniques": ["Can build [Land] improvements on tiles", "Cost increases by [5] when built"],
+		"cost": 50,
+		"hurryCostModifier": 15
+},
+{
+		"name": "Work Boats",
+		"unitType": "Civilian Water",
+		"movement": 3,
+		"cost": 14,
+		"requiredTech": "Sailing",
+		"uniques": ["Cannot enter ocean tiles <before discovering [Astronomy]>", "May create improvements on water resources"]
+},
+{
+		"name": "Inquisitor",
+		"unitType": "Civilian",
+		"uniques": ["Prevents spreading of religion to the city it is next to",
+			"Can remove other religions from cities <in [Friendly] tiles> <[2] times> <after which this unit is consumed>",
+			"[+1] Sight", "Only available <when religion is enabled>", "Unbuildable", "Religious Unit", "Takes your religion over the one in their birth city"
+		],
+		"movement": 3
+},
+{
+		"name": "Missionary",
+		"unitType": "Civilian",
+		"uniques": [
+            "Can Spread Religion <for [4] movement> <[2] times> <after which this unit is consumed>",
+            "May enter foreign tiles without open borders, but loses [250] religious strength each turn it ends there",
+			"Can be purchased with [Faith] [in all cities in which the majority religion is a major religion]",
+			"[-1] Sight", "Unbuildable", "Religious Unit", "Only available <when religion is enabled>"],
+		"movement": 4,
+		"religiousStrength": 1000
+},
+{
+		"name": "Great Prophet",
+		"unitType": "Civilian",
+		"uniques": [
+            "Can instantly construct a [Holy site] improvement <by consuming this unit> <if it hasn't used other actions yet>",
+            "Can Spread Religion <for [2] movement> <[4] times> <after which this unit is consumed>",
+			"Removes other religions when spreading religion",
+            "May found a religion <by consuming this unit> <if it hasn't used other actions yet>",
+            "May enhance a religion <by consuming this unit> <if it hasn't used other actions yet>",
+			"May enter foreign tiles without open borders", "[-1] Sight", "Great Person - [Faith]",
+			"Unbuildable", "Religious Unit", "Only available <when religion is enabled>",
+			"Takes your religion over the one in their birth city"],
+		"movement": 2,
+		"religiousStrength": 1000
+},
+{
+		"name": "Great Engineer",
+		"unitType": "Civilian",
+		"uniques": ["Can speed up construction of a building", "Can instantly construct a [Manufactory] improvement <by consuming this unit>", "Great Person - [Production]", "Unbuildable"],
+		"movement": 2
+},
+{
+		"name": "Great Merchant",
+		"unitType": "Civilian",
+		"uniques": ["Can undertake a trade mission with City-State, giving a large sum of gold and [30] Influence",
+			"Can instantly construct a [Customs house] improvement <by consuming this unit>", "Great Person - [Gold]", "Unbuildable"],
+		"movement": 3
+},
+{
+		"name": "Great Scientist",
+		"unitType": "Civilian",
+		"uniques": ["Can hurry technology research", "Can instantly construct a [Academy] improvement <by consuming this unit>", "Great Person - [Science]", "Unbuildable"],
+		"movement": 2
+},
+{
+		"name": "Great Artist",
+		"unitType": "Civilian",
+		"uniques": ["Empire enters a [8]-turn Golden Age <by consuming this unit>", "Can instantly construct a [Landmark] improvement <by consuming this unit>", "Great Person - [Culture]", "Unbuildable"],
+		"movement": 2
+},
+{
+		"name": "Great General",
+		"unitType": "General",
+		"uniques": ["Empire enters a [8]-turn Golden Age <by consuming this unit>", "[+15]% Strength bonus for [Military] units within [3] tiles", "Can instantly construct a [Citadel] improvement <by consuming this unit>", "Comment [Gets transfered Movement from escorting unit]",
+			"Great Person - [War]", "Unbuildable"],
+		"strength": 10,
+		"movement": 3,
+		"attackSound": "metalhit"
+},
+{
+		"name": "Ancient Scout",
+		"unitType": "Scout Infantry",
 		"movement": 2,
 		"strength": 5,
-        "range": 2,
-		"rangedStrength": 7,
-		"cost": 40,
-		"attackSound": "shot"
-	}
+		"cost": 29,
+		"upgradesTo": "Ancient Skirmisher",
+		"uniques": ["All tiles cost 1 movement"],
+		"attackSound": "nonmetalhit"
+},
+{
+		"name": "Ancient Levy Skirmisher",
+		"unitType": "Light Infantry",
+		"cost": 33,
+		"movement": 2,
+		"strength": 6,
+		"rangedStrength": 12,
+		"range": 1,
+		"requiredTech": "Raiding",
+		"uniques": ["[+25]% Strength <vs [Heavy Infantry] units> <when attacking>"],
+		"attackSound": "throw"
+},
+{
+		"name": "Ancient Levy Archer",
+		"unitType": "Missile Infantry",
+		"movement": 2,
+		"strength": 5,
+		"rangedStrength": 10,
+		"range": 2,
+		"cost": 42,
+		"requiredTech": "Archery",
+		"uniques": ["[+25]% Strength <vs [Spear Infantry] units> <when attacking>"],
+		"attackSound": "arrow"
+},
+{
+		"name": "Ancient Levyman",
+		"unitType": "Light Infantry",
+		"cost": 43,
+		"movement": 2,
+		"strength": 6,
+		"requiredTech": "Labor Organization",
+		"attackSound": "nonmetalhit"
+},
+{
+		"name": "Ancient Chariot",
+		"unitType": "Chariot",
+		"cost": 103,
+		"movement": 4,
+		"strength": 10,
+		"rangedStrength": 20,
+		"range": 1,
+		"requiredResource": "Horses",
+		"requiredTech": "The Wheel",
+		"uniques": ["Can move after attacking","No defensive terrain bonus", "Rough terrain penalty", "[-33]% Strength <vs cities> <when attacking>",
+			"[+50]% Strength <vs [Light Infantry] units> <when attacking>", "[+15]% Strength <vs [Missile Infantry] units> <when defending>"],
+		"attackSound": "throw"
+},
+{
+		"name": "Ancient Chariot Archer",
+		"unitType": "Chariot",
+		"cost": 103,
+		"movement": 4,
+		"strength": 8,
+		"rangedStrength": 16,
+		"range": 2,
+		"requiredResource": "Horses",
+		"requiredTech": "The Wheel",
+		"uniques": ["Can move after attacking","No defensive terrain bonus", "Rough terrain penalty", "[-33]% Strength <vs cities> <when attacking>",
+			"[+15]% Strength <vs [Missile Infantry] units> <when defending>", "[+25]% Strength <vs [Spear Infantry] units> <when attacking>"],
+		"attackSound": "arrow"
+},
+{
+		"name": "Ancient Galley",
+		"unitType": "Melee Navy",
+		"movement": 3,
+		"strength": 10,
+		"cost": 83,
+		"requiredTech": "Sailing",
+		"uniques": ["Cannot enter ocean tiles"],
+		"attackSound": "nonmetalhit"
+},
+{
+		"name": "Ancient Levy Spearman",
+		"unitType": "Spear Infantry",
+		"cost": 43,
+		"movement": 2,
+		"strength": 6,
+		"requiredTech": "Copper Working",
+		"uniques": ["[+33]% Strength <vs [Light Cavalry] units> <when defending>", "[+15]% Strength <vs [Heavy Cavalry] units> <when defending>"],
+		"attackSound": "nonmetalhit"
+},
+{
+		"name": "Ancient Spearman",
+		"unitType": "Spear Infantry",
+		"cost": 83,
+		"movement": 2,
+		"strength": 8,
+		"requiredTech": "Masonry",
+		"uniques": ["[+50]% Strength <vs [Light Cavalry] units>", "[+25]% Strength <vs [Heavy Cavalry] units>"],
+		"attackSound": "metalhit"
+},
+{
+		"name": "Ancient Skirmisher",
+		"unitType": "Light Infantry",
+		"cost": 83,
+		"movement": 2,
+		"strength": 7,
+		"rangedStrength": 14,
+		"range": 1,
+		"requiredTech": "Copper Working",
+		"uniques": ["[+50]% Strength <vs [Heavy Infantry] units> <when attacking>"],
+		"attackSound": "throw"
+},
+{
+		"name": "Ancient Warrior",
+		"unitType": "Heavy Infantry",
+		"cost": 103,
+		"movement": 2,
+		"strength": 9,
+		"requiredTech": "Bronze Working",
+		"uniques": ["[+33]% Strength <vs [Spear Infantry] units> <when attacking>", "[+50]% Strength <vs [Missile Infantry] units> <when attacking>"],
+		"attackSound": "metalhit"
+},
+{
+		"name": "Ancient Archer",
+		"unitType": "Missile Infantry",
+		"movement": 2,
+		"strength": 7,
+		"rangedStrength": 14,
+		"range": 2,
+		"cost": 42,
+		"requiredTech": "Composite Bows",
+		"uniques": ["[+33]% Strength <vs [Spear Infantry] units> <when attacking>"],
+		"attackSound": "arrow"
+},
+{
+		"name": "Ancient Pikeman",
+		"unitType": "Spear Infantry",
+		"cost": 103,
+		"movement": 1,
+		"strength": 8,
+		"requiredTech": "The Phalanx",
+		"uniques": ["[+100]% Strength <vs [Light Cavalry] units>", "[+50]% Strength <vs [Heavy Cavalry] units>", "[+200]% Strength <vs [Chariot] units>", "All tiles cost 1 movement"],
+		"attackSound": "metalhit"
+},
+{
+		"name": "Ancient Cavalry",
+		"unitType": "Light Cavalry",
+		"cost": 63,
+		"movement": 4,
+		"strength": 7,
+		"requiredResource": "Horses",
+		"requiredTech": "Horseback Riding",
+		"uniques": ["[+50]% Strength <vs [Missile Infantry] units> <when attacking>", "[+25]% Strength <vs [Light Infantry] units> <when attacking>", "Can move after attacking","No defensive terrain bonus","[-33]% Strength <vs cities> <when attacking>"],
+		"attackSound": "horse"
+},
+{
+		"name": "Ancient Catapult",
+		"unitType": "Heavy Artillery",
+		"movement": 2,
+		"strength": 7,
+		"rangedStrength": 14,
+		"range": 2,
+		"cost": 100,
+		"requiredTech": "Siege Machines",
+		"uniques": ["[+250]% Strength <vs cities> <when attacking>", "No defensive terrain bonus",
+			"Must set up to ranged attack"],
+		"hurryCostModifier": 20,
+		"attackSound": "throw"
+},
+{
+		"name": "Ancient War Elephant",
+		"unitType": "Elephant",
+		"cost": 153,
+		"movement": 3,
+		"strength": 14,
+		"requiredResource": "Ivory",
+		"requiredTech": "Elephant Taming",
+		"uniques": ["Destroys tile improvements when attacking", "[-10]% Strength for enemy [Military] units in adjacent [Land] tiles", "[+100]% Strength <vs [Missile Infantry] units> <when attacking>", "[+100]% Strength <vs [Light Infantry] units> <when attacking>", "Can move after attacking","No defensive terrain bonus"],
+		"attackSound": "elephant"
+}
 ]
